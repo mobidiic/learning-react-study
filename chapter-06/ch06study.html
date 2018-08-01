@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div id="react-container"></div>
+
+  <script src="https://unpkg.com/prop-types/prop-types.js"></script>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+
+  <script type="text/babel">
+  //
+  // const { Component } =React
+  // const { render } = ReactDOM
+  //
+  // class Summary extends Component {
+  //
+  //   static propTypes = {
+  //     ingredients: PropTypes.array,
+  //     steps: PropTypes.array,
+  //     title: PropTypes.string
+  //   }
+  //
+  //   render(){
+  //     const { ingredients, steps, title } = this.props
+  //     return (
+  //       <div className="summary">
+  //         <h1>{title}</h1>
+  //         <p>
+  //           <span>{ingredients.length} Ingredients | </span>
+  //           <span>{steps.length} Steps </span>
+  //         </p>
+  //       </div>
+  //     )
+  //   }
+  // }
+  //
+  // const ingredients = [
+  //   "Peanut Butter",
+  //   "jelly",
+  //   "Bread"
+  // ]
+  //
+  // const steps = [
+  //   "빵에 피넛버터 바른다",
+  //   "젤리도 바른다",
+  //   "두빵을 합친다"
+  //   "5분 식힌다",
+  //   "플레이팅한다"
+  // ]
+  //
+  // render(
+  //   <Summary title="Peanut Butter and Jelly"
+  //       ingredients={ingredients}
+  //       steps={steps} />,
+  //   document.getElementById('react-container')
+  // )
+
+      const { Component } = React
+      const { render } = ReactDOM
+
+      class Summary extends Component {
+
+          static propTypes = {
+              ingredients: PropTypes.array,
+              steps: PropTypes.array,
+              title: PropTypes.string
+          }
+
+          static defaultProps ={
+            ingredients: 0,
+            steps: 0,
+            title: "[untitled recipe]"
+          }
+
+          render() {
+              const {ingredients, steps, title} = this.props
+              return (
+                <div className="summary">
+                  <h1>{title}</h1>
+                  <p>
+                    <span>{ingredients} Ingredients | </span>
+                    <span>{steps} Steps</span>
+                  </p>
+                </div>
+              )
+          }
+
+      }
+
+      const ingredients = [
+          "Peanut Butter",
+          "Jelly",
+          "Bread"
+      ]
+
+      const steps = [
+          "Spread Peanut Butter on one slice of Bread",
+          "Spread Jelly on other slice of Bread",
+          "Put the bread together",
+          "Set out for 5 minutes to cool",
+          "Plate the dish on a paper towel"
+      ]
+
+      render(
+          <Summary  />,
+          document.getElementById('react-container')
+      )
+  </script>
+</body>
+</html>

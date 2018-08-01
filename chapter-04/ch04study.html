@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id="react-container">
+
+  </div>
+
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+
+<script>
+  // const dish = React.createElement
+  //                 ("h1",
+  //                 null,
+  //                 "훈제 연어" // 요 자리가 자식자리! 여기에 엘리먼트들을 넣어서 컴포넌트 트리를 만들 수 있다.
+  // const dish2 = React.createElement("h1", {id: "recipe-0", 'data-dype':"title"}, "훈제 연어2")
+  //
+  // ReactDOM.render(
+  //     dish,
+  //     document.getElementById('react-container')
+  // )
+  // ReactDOM.render(
+  //     dish2,
+  //     document.getElementById('react-container')
+  // )
+  //
+  // console.log('dish', dish)
+  // console.log('dish2', dish2)
+  // //한번에 하나? ㅇㅇ 루트는 한개뿐! ?? 맞는지 확인
+
+  const itemForSalmon=[
+    "연어 500그램",
+    "잣 1컵",
+    "마늘 3쪽",
+    "옐로 스쿼시 1개"
+  ]
+  // const IngredientsList = React.createClass({
+  //   displayName : "IngredientsList",
+  //   rendor(){
+  //     return React.createElement("ul", {"className" : "ingredients"},
+  //       // itemForSalmon.map(ingredient => React.createElement("li", null, ingredient))
+  //       React.createElement("li", null, "연어 500그람"),
+  //       React.createElement("li", null, "잣 1컵"))
+  //   }
+  // }) 코드가 아래껄로 바뀜. 아마 createClass 메소드 사라진듯?
+
+  class IngredientsList extends React.Component {
+    render() {
+      return React.createElement("ul", {"className": "ingredients"},
+          React.createElement("li", null, "1 lb Salmon"),
+          React.createElement("li", null, "1 cup Pine Nuts"),
+          React.createElement("li", null, "2 cups Butter Lettuce"),
+          React.createElement("li", null, "1 Yellow Squash"),
+          React.createElement("li", null, "1/2 cup Olive Oil"),
+          React.createElement("li", null, "3 cloves of Garlic")
+      )
+    }
+  }
+  const list = React.createElement(IngredientsList, null, null)
+
+  ReactDOM.render(list, document.getElementById('react-container'))
+
+  const IngredientsList = props => React.createElement("ul", {className : "ingredients"}, props.item.map((ingredient, i) => React.createElement("li", {key : i}, ingredient)))
+
+
+  //props 의 디스트럭쳐링
+  const IngredientsList = ({items}) => React.createElement("ul", {className : "ingredients"}, items.map((ingredient, i) => React.createElement("li", {key : i}, ingredient)))
+
+
+  //팩토리를 쓰면 첫번째 인자가 밖의 팩토리의 속성으로 나오는 거 밖에 차이가 없???
+</script>
+</body>
+</html>

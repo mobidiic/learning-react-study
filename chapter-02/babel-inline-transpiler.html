@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="minimum-scale=1.0, width=device-width, maximum-scale=1.0, user-scalable=no"/>
+    <meta charset="utf-8">
+    <title>Transpiling Inline with Babel</title>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+<body>
+<h1>Babel Inline Transpiler</h1>
+<p>Open the console</p>
+<script type="text/babel">// 이부분이 바벨 트랜스파일링 하는 부분이다. 위에서 바벨 호출해야
+    //이 방식은 좋은 방식이 아니다. 앱의 실행 속도가 느려짐!! 아예 프로덕션 과정에서 트랜스파일링해야 -> 웹팩!!
+
+    // Destructuring would not work
+
+    const tahoe = {
+        type: "lake",
+        name: "tahoe",
+        state: "california"
+    }
+
+    const {name, state} = tahoe
+
+    const tahoeCity = {
+        ...tahoe,
+        type: "city"
+    }
+
+    console.log(tahoeCity.type, state)
+
+
+</script>
+</body>
+</html>
