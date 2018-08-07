@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="./03-component-state/styles.css" />
+  <title>Document</title>
+</head>
+<body>
+  <div id="react-container"></div>
+
+<script src="https://unpkg.com/prop-types/prop-types.js"></script>
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<script type="text/babel">
+
+  const {render} = ReactDOM
+  const {Component} =React
+
+  const Star = ({selected=false, onclick= f=>f}) =>
+    <div className={(selected)? "star selected" : "star"} onClick={onClick}>
+    </div>
+
+  Star.propTypes ={
+    selected: PropTypes.bool,
+    onClick: PropTypes.func
+  }
+
+  class StarRating extends Component{
+    constructor(props){
+      super(props)
+      this.state={
+        starsSelected: 0
+      }
+      this.change = this.change.bind(this)
+    }
+
+    change(starsSelected){
+      this.setState({starsSelected})
+    }
+
+    render(){
+      const {totalStars} = this.props
+      const {starsSelected} = this.state
+      return (
+        <div className="star-rating">
+          {[...Array(totalStars)].map((n, i) =>
+            <Star key={i} selected={i<starsSelected} onClick={()=> this.change(i+1)} />
+          )}
+          <p>{starsSelected} / {totalStars}</p>
+        </div>
+      )
+    }
+  }
+
+    StarRating.propTypes = {
+      totalStars: PropTypes.number
+    }
+
+    StarRating.defaultProps ={
+      totalStars: 5
+    }
+
+
+    render(
+        <StarRating />,
+        document.getElementById('react-container')
+    )
+
+</script>
+</body>
+</html>

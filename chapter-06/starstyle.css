@@ -1,0 +1,42 @@
+.star {
+  cursor : pointer;
+  height: 25px;
+  width: 25px;
+  margin: 2px;
+  float: left;
+  background-color : grey;
+  clip-path: polygon(
+    50% 0%,
+    63% 38%,
+    100% 38%,
+    69% 59%,
+    82% 100%,
+    50% 75%,
+    18% 100%,
+    31% 59%,
+    36% 38%
+    );
+}
+
+.star.selected {
+  background-color: red;
+}
+
+
+html, body, #react-container {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+#react-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+p {
+  flex-basis: 100%;
+  text-align: center;
+}
