@@ -15,6 +15,8 @@
       const { createStore, combineReducers, compose, applyMiddleware } = Redux
       const { v4 } = uuid
 
+
+      //리듀서 생성
       const color = (state = {}, action) => {
           switch (action.type) {
               case "ADD_COLOR":
@@ -66,6 +68,8 @@
           }
       }
 
+
+      //액션 생성기 생성
       const addColor = (title, color) =>
           ({
               type: "ADD_COLOR",
@@ -106,7 +110,7 @@
 
 
 
-
+      //미들웨어 생성
       const logger = store => next => action => {
           let result
           console.groupCollapsed("dispatching", action.type)
@@ -116,8 +120,11 @@
           console.log('next state', store.getState())
           console.groupEnd()
           return result
-      }
+      }//디스패치가 이뤄지기 전 상태 표시 후, 넥스트를 통해 액션 전달, 다음에 그 이후 상태 로깅 후 종료.
 
+
+
+      //스토어 생성
       const store = applyMiddleware(logger)(createStore)(
           combineReducers({ colors, sort })
       )
