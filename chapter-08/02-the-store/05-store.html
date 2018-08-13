@@ -73,7 +73,8 @@
     store.subscribe(() =>
       console.log('next state', store.getState())
     )
-
+    //스토어가 변경되면, 뒤의 함수가 실행된다.
+  
     store.dispatch({
       type: "ADD_COLOR",
       id: 1,

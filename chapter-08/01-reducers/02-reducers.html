@@ -11,6 +11,7 @@
 <div id="react-container"></div>
   <script type="text/babel">
 
+    //switch 문으로 액션의 타입 걸러서 리턴값 다르게.
     const color = (state = {}, action) => {
       switch (action.type) {
           case "ADD_COLOR":
@@ -94,6 +95,11 @@
     }
     newColors = colors(newColors, action)
     console.log( newColors )
+
+
+    //액션이 끝난 이후에 계속 로그를 찍어주는 이유는 머지??? 그냥 확인 디버깅용인가.
+    //color 리듀서와 colors리듀서의 차이. ADD 와 RATE 액션타입은 colors의 경우 color로 넘겨준다. 같은 결과.
+    //
 
 
   </script>

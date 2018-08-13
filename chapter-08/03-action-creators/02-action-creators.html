@@ -115,6 +115,8 @@
         () => store.dispatch(addColor("Party Pink", "#F142FF"))
       )
 
+      // 여러 함수를 한 함수로 합쳐주는 함수 compose from Redux(임포트 해줘야함)
+
       const print = compose(
         list => console.log(list),
         titles => titles.join(", "),

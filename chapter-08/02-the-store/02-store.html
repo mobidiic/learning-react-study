@@ -12,6 +12,9 @@
   <script type="text/babel">
 
     const { createStore, combineReducers } = Redux
+    //리듀서들을 한 리듀서로 만들어 단일 리듀서 트리를 만드는 함수 combineReducers.
+    
+
 
     const color = (state = {}, action) => {
         switch (action.type) {

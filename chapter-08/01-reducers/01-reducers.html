@@ -43,6 +43,7 @@
       }
 
       let newColor = color({}, action)
+      //처음에는 객체를 생성해서 컬러 리듀서를 호출한다. ADD_COLOR 액션을 수행한다.
 
       console.log( newColor )
 
@@ -55,6 +56,8 @@
       newColor = color(newColor, action)
 
       console.log( newColor )
+      //이런 식으로 기존의 newColor 객체에 action을 추가할 수 있다.
+
 
   </script>
 </body>

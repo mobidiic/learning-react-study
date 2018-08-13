@@ -108,6 +108,7 @@
       color: "#F142FF",
       timestamp: "Thu Mar 10 2016 01:11:12 GMT-0800 (PST)"
     })
+     // dispatch()메소드로 상태 변경.
     console.log(
       "Length of color array after ADD_COLOR",
       store.getState().colors.length
@@ -124,6 +125,8 @@
       id: 0,
       rating: 5
     })
+
+    //마찬가지. dispatch() method 사용
     console.log(
       "Color rating after RATE_COLOR",
       store.getState().colors[0].rating

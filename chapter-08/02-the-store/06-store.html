@@ -73,6 +73,7 @@
       const unsubscribeLogger = store.subscribe(() =>
           console.log('next state', store.getState())
       )
+      //여기서 정의만 해도 구독이 실행 됨.
 
       store.dispatch({
           type: "ADD_COLOR",
@@ -82,7 +83,6 @@
           timestamp: "Thu Mar 10 2016 01:11:12 GMT-0800 (PST)"
       })
 
-      unsubscribeLogger()
 
       store.dispatch({
           type: "ADD_COLOR",
@@ -102,6 +102,13 @@
           type: "REMOVE_COLOR",
           id: 2
       })
+
+      //이 경우 왜 1번만 로그가 출력되는가? (party pink만 들어가고 출력되고 이후 끝남.)\
+      //???의문점: 저 함수가 호출되면 그 이전의 변화가 출력된다. 이후의 변화는 출력되지 않음
+      // 저 함수는 구독을 헤제하고 싶을 시 호출.
+      // 한번 더 구독하면 해제된다.
+
+
 
   </script>
 </body>
