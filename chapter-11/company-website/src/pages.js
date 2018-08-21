@@ -19,7 +19,7 @@ export const Home = () =>
         </nav>
     </div>
 
-export const Whoops404 = ({ location }) =>
+export const Whoops404 = ({ location }) => //주소 프로퍼티를 디스트럭쳐링 구문으로 받음.
     <div className="whoops-404">
         <h1>Resource not found at '{location.pathname}'</h1>
     </div>

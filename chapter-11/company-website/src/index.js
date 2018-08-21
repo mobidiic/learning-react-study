@@ -31,7 +31,7 @@ render(
         <Route path="/events" component={Events} />
         <Route path="/products" component={Products} />
         <Route path="/contact" component={Contact} />
-        <Route component={Whoops404} />
+        <Route component={Whoops404} /> //위의 경로에 없을 때, Whoops404 컴포넌트를 렌더링한다.
       </Switch>
     </div>
   </HashRouter>,
